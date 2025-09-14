@@ -39,7 +39,6 @@ public class Main {
             List<Process> runningProcesses = new ArrayList<>();
             Map<String, Process> processMap = new HashMap<>();
 
-            // Запускаем все выбранные процессы
             for (String processName : processesToStart) {
                 try {
                     Process process = new ProcessBuilder(processName).start();
@@ -60,13 +59,11 @@ public class Main {
             String answer = scanner.nextLine();
 
             if (answer.equalsIgnoreCase("д")) {
-                // Завершаем все процессы
                 for (Process process : runningProcesses) {
                     process.destroy();
                 }
                 System.out.println("Все процессы завершены.");
 
-                // Собираем информацию о всех процессах
                 System.out.println("\nИнформация о всех процессах:");
 
                 for (Map.Entry<String, Process> entry : processMap.entrySet()) {
